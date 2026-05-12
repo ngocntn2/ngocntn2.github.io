@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chương trình đào tạo nội bộ: Công tác Kho & Quản lý Tài sản 2026</title>
+  <meta name="description" content="Landing page chương trình đào tạo nội bộ Công tác Kho & Quản lý Tài sản 2026 dành cho nhân sự tại 8 Viettel Tỉnh/TP." />
+  <style>
+    :root {
+      --vt-red: #E30613;
+      --vt-red-dark: #B30000;
+      --vt-red-light: #FF2D2D;
+      --black: #0A0A0A;
+      --dark: #1A1A1A;
+      --gray-1: #4A4A4A;
+      --gray-2: #7F7F7F;
+      --gray-3: #CCCCCC;
+      --gray-4: #F5F5F5;
+      --white: #FFFFFF;
+      --radius-xl: 28px;
+      --radius-lg: 20px;
+      --shadow-soft: 0 18px 48px rgba(10, 10, 10, 0.09);
+      --shadow-red: 0 18px 36px rgba(227, 6, 19, 0.22);
+      --container: 1180px;
+      --heading-font: "FS Magistral", "Roboto", Arial, sans-serif;
+      --body-font: "PF BeauSans Pro", "Roboto", Arial, sans-serif;
+      --ui-font: "Roboto", Arial, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: var(--body-font);
+      color: var(--black);
+      background: var(--white);
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .container {
+      width: min(var(--container), calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(204, 204, 204, 0.55);
+    }
+
+    .nav {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 250px;
+    }
+
+    .brand img { width: 156px; height: auto; }
+    .brand-subtitle {
+      display: none;
+      font-family: var(--ui-font);
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--gray-1);
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      font-family: var(--ui-font);
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--gray-1);
+    }
+    .nav-links a { transition: 200ms ease-out; }
+    .nav-links a:hover { color: var(--vt-red); }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 48px;
+      padding: 0 22px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-family: var(--ui-font);
+      font-size: 15px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: 200ms ease-out;
+      white-space: nowrap;
+    }
+    .btn-primary {
+      background: var(--vt-red);
+      color: var(--white);
+      box-shadow: var(--shadow-red);
+    }
+    .btn-primary:hover { background: var(--vt-red-dark); transform: translateY(-2px); }
+    .btn-secondary {
+      background: var(--white);
+      color: var(--vt-red);
+      border-color: rgba(227, 6, 19, .25);
+    }
+    .btn-secondary:hover { border-color: var(--vt-red); transform: translateY(-2px); }
+    .btn-dark {
+      background: var(--black);
+      color: var(--white);
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at top right, rgba(227, 6, 19, .13), transparent 36%),
+        linear-gradient(135deg, #FFFFFF 0%, #FFF6F6 48%, #F5F5F5 100%);
+      padding: 76px 0 42px;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: auto -120px -180px auto;
+      width: 520px;
+      height: 520px;
+      border-radius: 50%;
+      background: rgba(227, 6, 19, .09);
+      border: 1px solid rgba(227, 6, 19, .12);
+    }
+    .hero-grid {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1.08fr .92fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(227, 6, 19, .08);
+      color: var(--vt-red-dark);
+      font-family: var(--ui-font);
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+    .eyebrow::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      background: var(--vt-red);
+      border-radius: 50%;
+    }
+    h1, h2, h3 {
+      font-family: var(--heading-font);
+      line-height: 1.08;
+      margin: 0;
+      letter-spacing: -0.025em;
+    }
+    h1 {
+      margin-top: 24px;
+      font-size: clamp(42px, 5.5vw, 72px);
+      font-weight: 900;
+    }
+    h1 span { color: var(--vt-red); }
+    .hero-lead {
+      margin: 24px 0 0;
+      max-width: 680px;
+      font-size: 19px;
+      color: var(--gray-1);
+    }
+    .hero-actions {
+      margin-top: 32px;
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .hero-note {
+      margin-top: 20px;
+      color: var(--gray-2);
+      font-family: var(--ui-font);
+      font-size: 13px;
+    }
+
+    .hero-card {
+      position: relative;
+      padding: 28px;
+      border-radius: var(--radius-xl);
+      background: var(--black);
+      color: var(--white);
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+    }
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: -90px -90px auto auto;
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+      background: var(--vt-red);
+      opacity: .9;
+    }
+    .hero-card > * { position: relative; }
+    .logo-tile {
+      width: 100%;
+      background: var(--vt-red);
+      border-radius: 22px;
+      padding: 18px 20px;
+      margin-bottom: 24px;
+    }
+    .logo-tile img { width: 240px; }
+    .meta-list { display: grid; gap: 14px; margin-top: 22px; }
+    .meta-item {
+      display: grid;
+      grid-template-columns: 42px 1fr;
+      gap: 14px;
+      align-items: start;
+      padding: 16px;
+      border-radius: 18px;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.1);
+    }
+    .meta-icon {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      background: rgba(227, 6, 19, .95);
+      font-size: 20px;
+    }
+    .meta-label {
+      margin: 0;
+      color: rgba(255,255,255,.64);
+      font-size: 13px;
+      font-family: var(--ui-font);
+    }
+    .meta-value { margin: 2px 0 0; font-weight: 900; }
+
+    section { padding: 82px 0; }
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 28px;
+      margin-bottom: 34px;
+    }
+    .section-kicker {
+      margin: 0 0 10px;
+      color: var(--vt-red);
+      font-family: var(--ui-font);
+      font-size: 13px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+    }
+    .section-title { font-size: clamp(32px, 3.7vw, 48px); font-weight: 900; }
+    .section-desc { max-width: 560px; color: var(--gray-1); margin: 12px 0 0; font-size: 17px; }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .card {
+      padding: 26px;
+      border-radius: var(--radius-lg);
+      background: var(--white);
+      border: 1px solid rgba(204,204,204,.7);
+      box-shadow: 0 10px 34px rgba(10,10,10,.05);
+      transition: 200ms ease-out;
+    }
+    .card:hover { transform: translateY(-4px); box-shadow: var(--shadow-soft); }
+    .card-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 18px;
+      display: grid;
+      place-items: center;
+      background: rgba(227, 6, 19, .08);
+      color: var(--vt-red);
+      font-size: 25px;
+      margin-bottom: 18px;
+    }
+    .card h3 { font-size: 22px; font-weight: 900; margin-bottom: 10px; }
+    .card p { margin: 0; color: var(--gray-1); }
+    .soft-bg { background: var(--gray-4); }
+    .dark-section {
+      background: var(--black);
+      color: var(--white);
+    }
+    .dark-section .section-desc, .dark-section .card p { color: rgba(255,255,255,.72); }
+    .dark-section .card {
+      background: rgba(255,255,255,.06);
+      border-color: rgba(255,255,255,.12);
+      color: var(--white);
+    }
+
+    .info-strip {
+      margin-top: -26px;
+      position: relative;
+      z-index: 3;
+    }
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 12px;
+      padding: 14px;
+      border-radius: 24px;
+      background: var(--white);
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(204,204,204,.75);
+    }
+    .info-box {
+      padding: 18px 14px;
+      border-radius: 18px;
+      background: #fff;
+      border: 1px solid rgba(204,204,204,.65);
+    }
+    .info-box b { display: block; font-size: 20px; line-height: 1.2; margin-bottom: 6px; }
+    .info-box span { display: block; color: var(--gray-1); font-size: 13px; font-family: var(--ui-font); }
+
+    .check-list { display: grid; gap: 14px; margin: 0; padding: 0; list-style: none; }
+    .check-list li {
+      display: grid;
+      grid-template-columns: 26px 1fr;
+      gap: 12px;
+      align-items: start;
+      color: var(--gray-1);
+    }
+    .check-list li::before {
+      content: "✓";
+      display: grid;
+      place-items: center;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: rgba(227,6,19,.1);
+      color: var(--vt-red);
+      font-weight: 900;
+      font-family: var(--ui-font);
+    }
+    .two-col {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 32px;
+      align-items: start;
+    }
+    .panel {
+      padding: 32px;
+      border-radius: var(--radius-xl);
+      background: var(--white);
+      border: 1px solid rgba(204,204,204,.7);
+      box-shadow: var(--shadow-soft);
+    }
+    .red-panel {
+      background: var(--vt-red);
+      color: var(--white);
+      border: none;
+    }
+    .red-panel p { color: rgba(255,255,255,.82); }
+
+    .curriculum {
+      display: grid;
+      gap: 18px;
+    }
+    .curriculum-item {
+      display: grid;
+      grid-template-columns: 96px 1fr;
+      gap: 22px;
+      padding: 24px;
+      border-radius: 24px;
+      background: var(--white);
+      border: 1px solid rgba(204,204,204,.7);
+      box-shadow: 0 10px 34px rgba(10,10,10,.05);
+    }
+    .part-badge {
+      height: 72px;
+      border-radius: 22px;
+      display: grid;
+      place-items: center;
+      background: var(--black);
+      color: var(--white);
+      font-family: var(--heading-font);
+      font-size: 28px;
+      font-weight: 900;
+    }
+    .curriculum-item:nth-child(2) .part-badge { background: var(--vt-red); }
+    .curriculum-item:nth-child(3) .part-badge { background: var(--gray-4); color: var(--black); }
+
+    .timeline {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .timeline-card {
+      padding: 30px;
+      border-radius: var(--radius-xl);
+      background: var(--white);
+      border: 1px solid rgba(204,204,204,.7);
+      box-shadow: var(--shadow-soft);
+    }
+    .timeline-card .day {
+      display: inline-flex;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(227,6,19,.1);
+      color: var(--vt-red-dark);
+      font-weight: 900;
+      font-family: var(--ui-font);
+      margin-bottom: 18px;
+    }
+
+    .instructors { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .person {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+      padding: 24px;
+      border-radius: var(--radius-xl);
+      background: var(--white);
+      border: 1px solid rgba(204,204,204,.7);
+      box-shadow: 0 10px 34px rgba(10,10,10,.05);
+    }
+    .avatar {
+      width: 72px;
+      height: 72px;
+      flex: 0 0 auto;
+      border-radius: 24px;
+      display: grid;
+      place-items: center;
+      background: var(--vt-red);
+      color: var(--white);
+      font-family: var(--heading-font);
+      font-size: 26px;
+      font-weight: 900;
+    }
+    .person h3 { font-size: 22px; margin-bottom: 4px; }
+    .person p { margin: 0; color: var(--gray-1); }
+
+    .assessment {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 20px;
+    }
+    .score-badge {
+      font-family: var(--heading-font);
+      font-size: 58px;
+      font-weight: 900;
+      color: var(--vt-red);
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+
+    .deadline-banner {
+      padding: 28px;
+      border-radius: var(--radius-xl);
+      background: linear-gradient(135deg, var(--vt-red), var(--vt-red-dark));
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      box-shadow: var(--shadow-red);
+    }
+    .deadline-banner h2 { font-size: clamp(28px, 3vw, 42px); }
+    .deadline-banner p { margin: 8px 0 0; color: rgba(255,255,255,.82); }
+
+    .form-wrap {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 28px;
+      align-items: start;
+    }
+    form {
+      display: grid;
+      gap: 16px;
+      padding: 30px;
+      border-radius: var(--radius-xl);
+      background: var(--white);
+      border: 1px solid rgba(204,204,204,.7);
+      box-shadow: var(--shadow-soft);
+    }
+    .field-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    label {
+      display: grid;
+      gap: 8px;
+      font-family: var(--ui-font);
+      font-size: 13px;
+      font-weight: 900;
+      color: var(--gray-1);
+    }
+    input, select, textarea {
+      width: 100%;
+      min-height: 48px;
+      border: 1px solid var(--gray-3);
+      border-radius: 14px;
+      padding: 12px 14px;
+      font: 400 15px var(--body-font);
+      color: var(--black);
+      outline: none;
+      transition: 200ms ease-out;
+      background: var(--white);
+    }
+    textarea { min-height: 120px; resize: vertical; }
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--vt-red);
+      box-shadow: 0 0 0 4px rgba(227,6,19,.09);
+    }
+    .form-note { color: var(--gray-2); font-size: 13px; margin: 0; }
+
+    details {
+      padding: 20px 22px;
+      border: 1px solid rgba(204,204,204,.7);
+      border-radius: 18px;
+      background: var(--white);
+      box-shadow: 0 8px 24px rgba(10,10,10,.04);
+    }
+    details + details { margin-top: 12px; }
+    summary { cursor: pointer; font-weight: 900; font-family: var(--heading-font); font-size: 20px; }
+    details p { color: var(--gray-1); margin: 12px 0 0; }
+
+    .final-cta {
+      padding: 72px 0;
+      background:
+        radial-gradient(circle at bottom left, rgba(227,6,19,.22), transparent 30%),
+        var(--black);
+      color: var(--white);
+      text-align: center;
+    }
+    .final-cta p { max-width: 720px; margin: 18px auto 0; color: rgba(255,255,255,.76); font-size: 18px; }
+    .final-cta .hero-actions { justify-content: center; }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .contact-card strong { display:block; font-size: 18px; margin-bottom: 6px; }
+    .contact-card a, .contact-card span { color: var(--gray-1); }
+
+    .footer {
+      padding: 38px 0;
+      background: var(--black);
+      color: rgba(255,255,255,.7);
+      font-family: var(--ui-font);
+      font-size: 14px;
+    }
+    .footer-grid {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .footer img { width: 160px; }
+    .footer a { color: rgba(255,255,255,.86); margin-left: 16px; }
+
+    .sticky-cta {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 60;
+    }
+
+    .mobile-menu-btn { display: none; }
+
+    @media (max-width: 1040px) {
+      .nav-links { display: none; }
+      .mobile-menu-btn { display: inline-flex; }
+      .hero-grid, .two-col, .form-wrap { grid-template-columns: 1fr; }
+      .info-grid { grid-template-columns: repeat(3, 1fr); }
+      .cards-grid, .assessment, .contact-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 720px) {
+      .container { width: min(100% - 28px, var(--container)); }
+      .hero { padding: 52px 0 32px; }
+      section { padding: 58px 0; }
+      .brand img { width: 132px; }
+      .btn { width: 100%; }
+      .hero-actions { display: grid; }
+      .info-grid, .cards-grid, .timeline, .instructors, .assessment, .contact-grid, .field-grid { grid-template-columns: 1fr; }
+      .section-head { display: block; }
+      .curriculum-item { grid-template-columns: 1fr; }
+      .part-badge { width: 96px; }
+      .deadline-banner { display: block; }
+      .deadline-banner .btn { margin-top: 20px; }
+      .person { align-items: start; }
+      .sticky-cta { left: 14px; right: 14px; bottom: 14px; }
+      .sticky-cta .btn { box-shadow: 0 16px 34px rgba(10,10,10,.28); }
+      .footer a { margin-left: 0; margin-right: 12px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="container nav">
+      <a class="brand" href="#top" aria-label="Viettel Networks">
+        <img src="assets/viettel-networks-light.png" alt="Viettel Networks" />
+        <span class="brand-subtitle">Đào tạo nội bộ</span>
+      </a>
+      <nav class="nav-links" aria-label="Điều hướng chính">
+        <a href="#tong-quan">Tổng quan</a>
+        <a href="#muc-tieu">Mục tiêu</a>
+        <a href="#noi-dung">Nội dung</a>
+        <a href="#lich-trinh">Lịch trình</a>
+        <a href="#dang-ky">Đăng ký</a>
+        <a href="#lien-he">Liên hệ</a>
+      </nav>
+      <a class="btn btn-primary" href="#dang-ky">Đăng ký tham gia</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero" id="tong-quan">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Chương trình đào tạo nội bộ 2026</div>
+          <h1>Công tác <span>Kho & Quản lý Tài sản</span></h1>
+          <p class="hero-lead">Chuẩn hóa nghiệp vụ, tháo gỡ vướng mắc thực tế và làm chủ thao tác SAP cho nhân sự quản lý tài sản, kho và vận hành tại 8 Viettel Tỉnh/TP.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#dang-ky">Đăng ký tham gia</a>
+            <a class="btn btn-secondary" href="#noi-dung">Xem nội dung đào tạo</a>
+          </div>
+          <p class="hero-note">Thời gian: 04/05/2026 - 05/05/2026 · Hình thức: Online qua Zoom + Offline tại Đà Nẵng</p>
+        </div>
+        <aside class="hero-card" aria-label="Thông tin nhanh chương trình">
+          <div class="logo-tile">
+            <img src="assets/viettel-networks-red.png" alt="Viettel Networks logo phiên bản nền đỏ" />
+          </div>
+          <h2>Thông tin khóa học</h2>
+          <div class="meta-list">
+            <div class="meta-item"><div class="meta-icon">📅</div><div><p class="meta-label">Thời gian</p><p class="meta-value">04/05/2026 - 05/05/2026</p></div></div>
+            <div class="meta-item"><div class="meta-icon">⏱</div><div><p class="meta-label">Thời lượng</p><p class="meta-value">02 ngày</p></div></div>
+            <div class="meta-item"><div class="meta-icon">📍</div><div><p class="meta-label">Địa điểm</p><p class="meta-value">27B Nguyễn Thành Hãn, Hòa Cường, Đà Nẵng</p></div></div>
+            <div class="meta-item"><div class="meta-icon">💻</div><div><p class="meta-label">Hình thức</p><p class="meta-value">Online qua Zoom + Offline trực tiếp</p></div></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <div class="info-strip">
+      <div class="container info-grid">
+        <div class="info-box"><b>02 ngày</b><span>Thời lượng đào tạo</span></div>
+        <div class="info-box"><b>8</b><span>Viettel Tỉnh/TP</span></div>
+        <div class="info-box"><b>SAP</b><span>Thực hành nghiệp vụ</span></div>
+        <div class="info-box"><b>Kho</b><span>Quy trình & VTTB</span></div>
+        <div class="info-box"><b>QLTS</b><span>Vòng đời tài sản</span></div>
+        <div class="info-box"><b>≥ 7/10</b><span>Tiêu chuẩn đạt</span></div>
+      </div>
+    </div>
+
+    <section id="muc-tieu">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Mục tiêu chương trình</p>
+            <h2 class="section-title">Chuẩn hóa nghiệp vụ, xử lý đúng vấn đề thực tế</h2>
+          </div>
+          <p class="section-desc">Chương trình được thiết kế nhằm nâng cao nghiệp vụ và tháo gỡ khó khăn trong công tác kho, tài sản tại đơn vị.</p>
+        </div>
+        <div class="cards-grid">
+          <article class="card"><div class="card-icon">📘</div><h3>Nâng cao nghiệp vụ</h3><p>Trang bị kiến thức chuyên sâu về quy trình kho và tài sản, giúp học viên nắm vững yêu cầu nghiệp vụ tại đơn vị.</p></article>
+          <article class="card"><div class="card-icon">🧩</div><h3>Giải quyết vướng mắc</h3><p>Xử lý các tồn đọng, khó khăn trực tiếp tại tỉnh/thành phố trong quá trình thực hiện quy trình, quy định.</p></article>
+          <article class="card"><div class="card-icon">⚙️</div><h3>Làm chủ công nghệ</h3><p>Thực hành nghiệp vụ trên phần mềm SAP, tập trung vào thao tác kho, thanh lý, nhập xuất VTTB và quản lý tài sản.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="soft-bg" id="doi-tuong">
+      <div class="container two-col">
+        <div class="panel red-panel">
+          <p class="section-kicker" style="color:#fff;opacity:.88">Thành phần tham gia</p>
+          <h2 class="section-title">Dành cho nhân sự trực tiếp làm công tác tài sản, kho và vận hành</h2>
+          <p>Khóa học hướng đến các nhóm nhân sự tại 8 Viettel Tỉnh/TP cần cập nhật quy trình, chuẩn hóa nghiệp vụ và thực hành SAP.</p>
+        </div>
+        <div class="panel">
+          <ul class="check-list">
+            <li>Nhân viên Quản lý tài sản Viettel Tỉnh/TP.</li>
+            <li>Chi nhánh Công trình, Thủ kho VTP, VCC.</li>
+            <li>Cụm trưởng, nhân viên FT.</li>
+            <li>Nhân sự cần tháo gỡ khó khăn, vướng mắc trong công tác kho và quản lý tài sản tại đơn vị.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="chuan-bi">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Yêu cầu đầu vào</p>
+            <h2 class="section-title">Học viên cần chuẩn bị trước khóa học</h2>
+          </div>
+          <p class="section-desc">Chuẩn bị đầy đủ giúp phần thực hành SAP và phần giải đáp vướng mắc đạt hiệu quả cao hơn.</p>
+        </div>
+        <div class="cards-grid">
+          <article class="card"><div class="card-icon">💻</div><h3>Máy tính có SAP</h3><p>Học viên cần có máy tính cài đặt sẵn phần mềm SAP để tham gia thực hành nghiệp vụ.</p></article>
+          <article class="card"><div class="card-icon">📄</div><h3>Quy trình liên quan</h3><p>Chuẩn bị các quy trình, quy định liên quan đến công tác kho và quản lý tài sản.</p></article>
+          <article class="card"><div class="card-icon">❓</div><h3>Vướng mắc thực tế</h3><p>Sẵn sàng nêu các khó khăn tại đơn vị để được trao đổi và giải đáp trong chương trình.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="soft-bg" id="noi-dung">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Nội dung đào tạo</p>
+            <h2 class="section-title">03 phần trọng tâm, bám sát nghiệp vụ thực tế</h2>
+          </div>
+          <p class="section-desc">Nội dung tập trung vào nghiệp vụ kho, quản lý tài sản, thực hành SAP và giải đáp các lỗi/vướng mắc thường gặp.</p>
+        </div>
+        <div class="curriculum">
+          <article class="curriculum-item">
+            <div class="part-badge">01</div>
+            <div><h3>Nghiệp vụ Kho</h3><ul class="check-list"><li>Quy chế quản lý kho và các quy trình quy định liên quan.</li><li>Các quy trình quy định công tác quản lý kho.</li><li>Thực hành nghiệp vụ trên SAP: công tác thanh lý, nhập xuất VTTB.</li></ul></div>
+          </article>
+          <article class="curriculum-item">
+            <div class="part-badge">02</div>
+            <div><h3>Quản lý Tài sản</h3><ul class="check-list"><li>Luồng chảy quản lý tài sản và vòng đời tài sản.</li><li>Các quy trình quy định công tác quản lý tài sản.</li><li>Thực hành nghiệp vụ trên phần mềm SAP.</li></ul></div>
+          </article>
+          <article class="curriculum-item">
+            <div class="part-badge">03</div>
+            <div><h3>Giải đáp vướng mắc</h3><ul class="check-list"><li>Tháo gỡ bất cập khi thực hiện quy trình quy định trong thực tế.</li><li>Xử lý các lỗi thường gặp khi thao tác trên phần mềm SAP.</li></ul></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="lich-trinh">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Lộ trình 02 ngày</p>
+            <h2 class="section-title">Học theo mạch nghiệp vụ: từ kho đến quản lý tài sản</h2>
+          </div>
+          <p class="section-desc">Lịch dưới đây thể hiện định hướng nội dung theo ngày. Cần bổ sung khung giờ chi tiết nếu triển khai agenda chính thức.</p>
+        </div>
+        <div class="timeline">
+          <article class="timeline-card"><span class="day">Ngày 1</span><h3>Nghiệp vụ Kho & thực hành SAP</h3><p>Tập trung vào quy chế quản lý kho, quy trình quản lý kho và thực hành SAP liên quan đến công tác thanh lý, nhập xuất VTTB.</p></article>
+          <article class="timeline-card"><span class="day">Ngày 2</span><h3>Quản lý Tài sản & giải đáp vướng mắc</h3><p>Tập trung vào luồng chảy quản lý tài sản, vòng đời tài sản, thực hành nghiệp vụ SAP và xử lý các lỗi thường gặp.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="soft-bg" id="giang-vien">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Người hướng dẫn</p>
+            <h2 class="section-title">Đồng hành bởi Phòng KSVHKT</h2>
+          </div>
+          <p class="section-desc">Các nội dung được hướng dẫn theo từng mảng nghiệp vụ kho và quản lý tài sản.</p>
+        </div>
+        <div class="instructors">
+          <article class="person"><div class="avatar">N</div><div><h3>Đ/c Nguyễn Thị Như Ngọc</h3><p>Phòng KSVHKT · Hướng dẫn phần Quản lý Tài sản</p></div></article>
+          <article class="person"><div class="avatar">H</div><div><h3>Đ/c Phan Minh Hiển</h3><p>Phòng KSVHKT · Hướng dẫn phần Kho</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="dau-ra">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Yêu cầu đầu ra</p>
+            <h2 class="section-title">Kiểm tra cuối khóa trên hệ thống đào tạo nội bộ Viettel</h2>
+          </div>
+        </div>
+        <div class="assessment">
+          <article class="card"><div class="score-badge">100%</div><h3>Tham gia thi cuối khóa</h3><p>Các CBCNV tham gia khóa đào tạo đều tham gia thi kết thúc khóa học.</p></article>
+          <article class="card"><div class="score-badge">≥7</div><h3>Điểm đạt</h3><p>Tiêu chuẩn đạt yêu cầu sau khóa học là điểm số từ 7/10 trở lên.</p></article>
+          <article class="card"><div class="score-badge">SAP</div><h3>Thực hành nghiệp vụ</h3><p>Học viên được định hướng làm chủ thao tác nghiệp vụ trên phần mềm SAP.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="soft-bg" id="deadline">
+      <div class="container">
+        <div class="deadline-banner">
+          <div>
+            <h2>Hạn cuối đăng ký: 01/06/2026</h2>
+            <p>Học viên vui lòng hoàn tất đăng ký trước hạn để đơn vị tổng hợp danh sách tham gia chương trình.</p>
+          </div>
+          <a class="btn btn-dark" href="#dang-ky">Đăng ký trước hạn</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="dang-ky">
+      <div class="container form-wrap">
+        <div>
+          <p class="section-kicker">Đăng ký tham gia</p>
+          <h2 class="section-title">Cung cấp thông tin đăng ký và mục đích tham gia</h2>
+          <p class="section-desc">Form này là bản dựng giao diện landing page. Khi có link form chính thức, CTA có thể được kết nối trực tiếp tới biểu mẫu nội bộ.</p>
+        </div>
+        <form>
+          <div class="field-grid">
+            <label>Mã nhân viên<input type="text" placeholder="Nhập mã nhân viên" /></label>
+            <label>Họ và tên<input type="text" placeholder="Nhập họ và tên" /></label>
+          </div>
+          <div class="field-grid">
+            <label>Chức danh<input type="text" placeholder="Ví dụ: Nhân viên QLTS, Thủ kho..." /></label>
+            <label>Đơn vị<input type="text" placeholder="Nhập đơn vị công tác" /></label>
+          </div>
+          <label>Mục đích tham gia chương trình<textarea placeholder="Mô tả ngắn mục đích tham gia hoặc vướng mắc cần được hỗ trợ"></textarea></label>
+          <button class="btn btn-primary" type="button">Hoàn tất đăng ký</button>
+          <p class="form-note">[CẦN BỔ SUNG] Kết nối nút này với link form đăng ký chính thức hoặc hệ thống khảo sát nội bộ.</p>
+        </form>
+      </div>
+    </section>
+
+    <section class="soft-bg" id="faq">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">FAQ</p>
+            <h2 class="section-title">Câu hỏi thường gặp</h2>
+          </div>
+        </div>
+        <details open><summary>Khóa học diễn ra khi nào?</summary><p>Từ 04/05/2026 đến 05/05/2026, thời lượng 02 ngày.</p></details>
+        <details><summary>Hình thức học là gì?</summary><p>Chương trình kết hợp Online qua Zoom và Offline trực tiếp tại 27B Nguyễn Thành Hãn, Hòa Cường, Đà Nẵng.</p></details>
+        <details><summary>Học viên cần chuẩn bị gì?</summary><p>Học viên cần có máy tính cài đặt sẵn phần mềm SAP và chuẩn bị các quy trình, quy định liên quan.</p></details>
+        <details><summary>Điều kiện đạt sau khóa học là gì?</summary><p>Tham gia thi trên hệ thống đào tạo nội bộ Viettel và đạt từ 7/10 trở lên.</p></details>
+      </div>
+    </section>
+
+    <section class="final-cta">
+      <div class="container">
+        <h2 class="section-title">Sẵn sàng chuẩn hóa nghiệp vụ Kho & Quản lý Tài sản 2026?</h2>
+        <p>Hoàn tất đăng ký để tham gia chương trình đào tạo nội bộ, thực hành nghiệp vụ SAP và cùng tháo gỡ các vướng mắc thực tế tại đơn vị.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#dang-ky">Đăng ký tham gia ngay</a>
+          <a class="btn btn-secondary" href="#lien-he">Liên hệ đầu mối hỗ trợ</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="lien-he">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Liên hệ</p>
+            <h2 class="section-title">Đầu mối hỗ trợ chương trình</h2>
+          </div>
+        </div>
+        <div class="contact-grid">
+          <article class="card contact-card"><strong>Người phụ trách</strong><span>Đ/c Nguyễn Thị Như Ngọc</span></article>
+          <article class="card contact-card"><strong>Điện thoại</strong><a href="tel:0966600678">0966 600678</a></article>
+          <article class="card contact-card"><strong>Email</strong><a href="mailto:ngocntn2@viettel.com.vn">ngocntn2@viettel.com.vn</a></article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div><img src="assets/viettel-networks-dark.png" alt="Viettel Networks logo phiên bản nền tối" /></div>
+      <div>Chương trình đào tạo nội bộ: Công tác Kho & Quản lý Tài sản 2026</div>
+      <div><a href="#noi-dung">Nội dung</a><a href="#dang-ky">Đăng ký</a><a href="#lien-he">Liên hệ</a></div>
+    </div>
+  </footer>
+
+  <div class="sticky-cta"><a class="btn btn-primary" href="#dang-ky">Đăng ký tham gia</a></div>
+</body>
+</html>
